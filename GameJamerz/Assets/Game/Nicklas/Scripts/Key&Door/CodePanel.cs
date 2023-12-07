@@ -10,46 +10,26 @@ public class CodePanel : MonoBehaviour
     TextMeshProUGUI codeText;
     string codeTextValue = "";
     public string requiredValue;
+    public int requiredDigits;
 
-    public GameObject assoiciatedDoor;
-    private bool isDoorOpened = false;
-
-    public void SetAssociateDoor(GameObject door)
-    {
-        assoiciatedDoor = door;
-    }
-    public GameObject GetAssoiciatedDoor()
-    {
-        return assoiciatedDoor;
-    }
-
+    public GameObject assoicateDoor;
+  
     
-    public void OpenPanel()
+
+    // Update is called once per frame
+    void Update()
     {
         codeText.text = codeTextValue;
 
         if(codeTextValue == requiredValue)
         {
-            isDoorOpened = true;
+            assoicateDoor.GetComponent<DoorScript>().UnlockDoor();
         }
 
-        if(codeTextValue.Length >= 4)
+        if(codeTextValue.Length >= requiredDigits)
         {
             codeTextValue = "";
         }
-
-    }
-
-    public void ClosePanel()
-    {
-        codeText.text = "";
-        codeTextValue = "";
-        isDoorOpened = false;
-    }
-
-    public bool IsDoorOpened()
-    {
-        return isDoorOpened;
     }
 
 

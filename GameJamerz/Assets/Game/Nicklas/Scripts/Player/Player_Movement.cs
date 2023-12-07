@@ -9,35 +9,39 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private float walkSpeed;
 
-    private Dictionary<GameObject, CodePanel> doorCodePanelMap = new Dictionary<GameObject, CodePanel>(); 
-
-    public static bool isDoorOpened = false;
+    public List<GameObject> doors;
+    private GameObject activeDoor;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        foreach (var door in doors)
+        {
+            door.GetComponent<DoorScript>().LockDoor();
+        }
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        CodePanel[] codePanels = FindObjectsOfType<CodePanel>();
-        foreach(CodePanel panel in codePanels)
-        {
-            GameObject associatedDoor = panel.GetAssoiciatedDoor();
-            if(associatedDoor != null && !doorCodePanelMap.ContainsKey(associatedDoor))
-            {
-                doorCodePanelMap.Add(associatedDoor, panel);
-            }
-        }
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-       foreach(var pair in doorCodePanelMap)
+      if(activeDoor != null && activeDoor.GetComponent<DoorScript>().IsDoorLocked())
         {
-            GameObject door = pair.Key;
-            CodePanel codePanel = pair.Value;
-
-            if(codePanel != null && codePanel.IsDoorOpened())
+            activeDoor.GetComponent<DoorScript>().ShowCodePanel();
+        }
+      else
+        {
+            foreach(var door in doors)
             {
-                codePanel.ClosePanel();
+                var doorScript = door.GetComponent<DoorScript>();
+                if(doorScript != null && !doorScript.IsDoorLocked())
+                {
+                    doorScript.HideCodePanel();
+                }
             }
         }
     }
@@ -49,20 +53,18 @@ public class Player_Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        CodePanel codePanel;
-        if(doorCodePanelMap.TryGetValue(col.gameObject, out codePanel) && !codePanel.IsDoorOpened())
+        if(col.CompareTag("Door"))
         {
-            codePanel.OpenPanel();
+            activeDoor = col.gameObject;
         }
     }
 
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        CodePanel codePanel;
-        if(doorCodePanelMap.TryGetValue(col.gameObject, out codePanel))
+        if(col.CompareTag("Door"))
         {
-            codePanel.ClosePanel();
+            activeDoor = null;
         }
     }
 

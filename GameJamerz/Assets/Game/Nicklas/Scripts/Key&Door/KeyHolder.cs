@@ -26,5 +26,4 @@ public class KeyHolder : MonoBehaviour
     {
         return keyList.Contains(keyType);
     }
-
 }

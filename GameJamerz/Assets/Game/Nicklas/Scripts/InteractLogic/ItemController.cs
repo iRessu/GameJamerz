@@ -6,6 +6,7 @@ public class ItemController : MonoBehaviour
 {
 
     public bool isUsed;
+    
 
 
     public void UseItem(GameObject obj)

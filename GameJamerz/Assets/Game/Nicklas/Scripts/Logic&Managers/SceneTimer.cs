@@ -8,31 +8,26 @@ public class SceneTimer : MonoBehaviour
 {
 
     public TextMeshProUGUI timerText;
-    [SerializeField] float actualDuration = 2.5f;
-    [SerializeField] float  displayMultiplier= 2;
-    public float remaningTime;
+
+    [SerializeField] float remainingTime;
 
 
-    private void Start()
-    {
-        remaningTime = actualDuration * 60;
-    }
 
     // Update is called once per frame
     void Update()
     {
        
-        if(remaningTime > 0)
+        if(remainingTime > 0)
         {
-            remaningTime -= Time.deltaTime;
+            remainingTime -= Time.deltaTime;
         }
-        else if(remaningTime < 0)
+        else if(remainingTime < 0)
         {
-            remaningTime = 0;
+            remainingTime = 0;
             GameOver();
         }
-        float minutes = Mathf.FloorToInt((remaningTime / 60) * displayMultiplier);
-        float seconds = Mathf.FloorToInt(remaningTime * displayMultiplier % 60);
+        float minutes = Mathf.FloorToInt(remainingTime / 60);
+        float seconds = Mathf.FloorToInt(remainingTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
@@ -40,7 +35,7 @@ public class SceneTimer : MonoBehaviour
     void GameOver()
     {
 
-        if(remaningTime == 0)
+        if(remainingTime == 0)
         {
             SceneManager.LoadScene(1);
         }

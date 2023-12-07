@@ -10,7 +10,6 @@ public class CodePanel : MonoBehaviour
     TextMeshProUGUI codeText;
     string codeTextValue = "";
     public string requiredValue;
-    public int requiredDigits;
 
     public GameObject assoicateDoor;
   
@@ -26,7 +25,7 @@ public class CodePanel : MonoBehaviour
             assoicateDoor.GetComponent<DoorScript>().UnlockDoor();
         }
 
-        if(codeTextValue.Length >= requiredDigits)
+        if(codeTextValue.Length >= 5)
         {
             codeTextValue = "";
         }

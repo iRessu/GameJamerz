@@ -23,6 +23,7 @@ public class Player_Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Cursor.visible = false;
       
     }
 
@@ -64,7 +65,10 @@ public class Player_Movement : MonoBehaviour
     {
         if(col.CompareTag("Door"))
         {
+            activeDoor = col.gameObject;
+            activeDoor.GetComponent<DoorScript>().HideCodePanel();
             activeDoor = null;
+            Debug.Log("Exited Door Trigger");
         }
     }
 

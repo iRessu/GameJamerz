@@ -36,10 +36,14 @@ public class DoorScript : MonoBehaviour
     public void ShowCodePanel()
     {
         codePanel.SetActive(true);
+        Cursor.visible = true;
+        Debug.Log("CodePanel Active");
     }
 
     public void HideCodePanel()
     {
+        Cursor.visible = false;
         codePanel.SetActive(false);
+        Debug.Log("CodePanel hidden");
     }
 }

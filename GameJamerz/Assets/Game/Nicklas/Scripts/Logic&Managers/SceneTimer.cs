@@ -12,7 +12,10 @@ public class SceneTimer : MonoBehaviour
     [SerializeField] float remainingTime;
 
 
-
+    private void Start()
+    {
+        timerText.color = Color.white;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +23,8 @@ public class SceneTimer : MonoBehaviour
         if(remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
+
+            CheckEventAtSpecificTime();
         }
         else if(remainingTime < 0)
         {
@@ -29,9 +34,31 @@ public class SceneTimer : MonoBehaviour
         float minutes = Mathf.FloorToInt(remainingTime / 60);
         float seconds = Mathf.FloorToInt(remainingTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
     }
 
 
+    void CheckEventAtSpecificTime()
+    {
+        if (remainingTime <= 120f && remainingTime > 119.9f)
+        {
+            TimerAt3Minutes();
+        }
+        
+        if(remainingTime <= 60f && remainingTime > 59.9f)
+        {
+            TimerAt4Minutes();
+        }
+    }
+
+    void TimerAt4Minutes()
+    {
+        timerText.color = Color.red;
+    }
+    void TimerAt3Minutes()
+    {
+        timerText.color = Color.yellow;
+    }
     void GameOver()
     {
 

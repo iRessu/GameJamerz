@@ -8,7 +8,7 @@ public class SceneTimer : MonoBehaviour
 {
 
     public TextMeshProUGUI timerText;
-
+    public Animator timerTextAnimator;
     [SerializeField] float remainingTime;
 
 
@@ -43,6 +43,7 @@ public class SceneTimer : MonoBehaviour
         if (remainingTime <= 120f && remainingTime > 119.9f)
         {
             TimerAt3Minutes();
+            
         }
         
         if(remainingTime <= 60f && remainingTime > 59.9f)
@@ -54,10 +55,12 @@ public class SceneTimer : MonoBehaviour
     void TimerAt4Minutes()
     {
         timerText.color = Color.red;
+        timerTextAnimator.Play("TimerRed_AN");
     }
     void TimerAt3Minutes()
     {
         timerText.color = Color.yellow;
+        timerTextAnimator.Play("TimerYellow_AN");
     }
     void GameOver()
     {

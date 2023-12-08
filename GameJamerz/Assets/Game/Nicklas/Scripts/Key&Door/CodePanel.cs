@@ -36,4 +36,10 @@ public class CodePanel : MonoBehaviour
     {
         codeTextValue += digit;
     }
+
+    public void PlaySound()
+    {
+        AudioManager am = FindObjectOfType<AudioManager>();
+        am.Play("Button_Push");
+    }
 }

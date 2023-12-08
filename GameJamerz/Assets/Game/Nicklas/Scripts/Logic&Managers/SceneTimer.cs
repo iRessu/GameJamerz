@@ -40,13 +40,13 @@ public class SceneTimer : MonoBehaviour
 
     void CheckEventAtSpecificTime()
     {
-        if (remainingTime <= 120f && remainingTime > 119.9f)
+        if (remainingTime <= 121f && remainingTime > 120.9f)
         {
             TimerAt3Minutes();
             
         }
         
-        if(remainingTime <= 60f && remainingTime > 59.9f)
+        if(remainingTime <= 61f && remainingTime > 60.9f)
         {
             TimerAt4Minutes();
         }

@@ -12,6 +12,7 @@ public class CodePanel : MonoBehaviour
     public string requiredValue;
 
     public GameObject assoicateDoor;
+    public GameObject destroyDialogue;
   
     
 
@@ -23,10 +24,13 @@ public class CodePanel : MonoBehaviour
         if(codeTextValue == requiredValue)
         {
             assoicateDoor.GetComponent<DoorScript>().UnlockDoor();
+            AudioManager.FindObjectOfType<AudioManager>().Play("Right_Code");
+            Destroy(destroyDialogue);
         }
 
         if(codeTextValue.Length >= 5)
         {
+            AudioManager.FindObjectOfType<AudioManager>().Play("Wrong_Code");
             codeTextValue = "";
         }
     }

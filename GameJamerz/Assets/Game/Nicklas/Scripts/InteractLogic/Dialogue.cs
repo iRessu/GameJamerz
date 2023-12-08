@@ -11,7 +11,8 @@ public class Dialogue : MonoBehaviour
     public string line;
 
     public float textSpeed;
-    
+
+    private Coroutine typingCoroutine;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,19 +20,34 @@ public class Dialogue : MonoBehaviour
         StartDialogue();
     }
 
-  
 
+    public void ResetText()
+    {
+        textComponent.text = string.Empty;
+    }
     public void StartDialogue()
     {
-        StartCoroutine(TypeLine());
+        ResetText();
+
+        if(typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        typingCoroutine = StartCoroutine(TypeLine());
     }
 
     IEnumerator TypeLine()
     {
+      
+
         foreach(char c in line)
         {
             textComponent.text += c;
+            
             yield return new WaitForSeconds(textSpeed);
         }
+        
+       
     }
 }

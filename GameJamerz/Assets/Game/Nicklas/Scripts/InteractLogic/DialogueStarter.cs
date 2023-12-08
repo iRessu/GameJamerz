@@ -6,20 +6,27 @@ public class DialogueStarter : MonoBehaviour
 {
   
 
-    public GameObject dialogue;
+    public GameObject dialogueObject;
+    private Dialogue dialScript;
 
+
+    private void Start()
+    {
+        dialScript = dialogueObject.GetComponent<Dialogue>();
+    }
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.CompareTag("Player"))
         {
-            dialogue.SetActive(true);
+            dialogueObject.SetActive(true);
+            dialScript.StartDialogue();
         }
     }
     private void OnTriggerExit2D(Collider2D col)
     {
         if(col.CompareTag("Player"))
         {
-            dialogue.SetActive(false);
+            dialogueObject.SetActive(false);
         }
     }
 }

@@ -8,39 +8,64 @@ public class SceneTimer : MonoBehaviour
 {
 
     public TextMeshProUGUI timerText;
-    [SerializeField] float actualDuration = 2.5f;
-    [SerializeField] float  displayMultiplier= 2;
-    public float remaningTime;
+    public Animator timerTextAnimator;
+    [SerializeField] float remainingTime;
 
 
     private void Start()
     {
-        remaningTime = actualDuration * 60;
+        timerText.color = Color.white;
     }
-
     // Update is called once per frame
     void Update()
     {
        
-        if(remaningTime > 0)
+        if(remainingTime > 0)
         {
-            remaningTime -= Time.deltaTime;
+            remainingTime -= Time.deltaTime;
+
+            CheckEventAtSpecificTime();
         }
-        else if(remaningTime < 0)
+        else if(remainingTime < 0)
         {
-            remaningTime = 0;
+            remainingTime = 0;
             GameOver();
         }
-        float minutes = Mathf.FloorToInt((remaningTime / 60) * displayMultiplier);
-        float seconds = Mathf.FloorToInt(remaningTime * displayMultiplier % 60);
+        float minutes = Mathf.FloorToInt(remainingTime / 60);
+        float seconds = Mathf.FloorToInt(remainingTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
     }
 
 
+    void CheckEventAtSpecificTime()
+    {
+        if (remainingTime <= 120f && remainingTime > 119.9f)
+        {
+            TimerAt3Minutes();
+            
+        }
+        
+        if(remainingTime <= 60f && remainingTime > 59.9f)
+        {
+            TimerAt4Minutes();
+        }
+    }
+
+    void TimerAt4Minutes()
+    {
+        timerText.color = Color.red;
+        timerTextAnimator.Play("TimerRed_AN");
+    }
+    void TimerAt3Minutes()
+    {
+        timerText.color = Color.yellow;
+        timerTextAnimator.Play("TimerYellow_AN");
+    }
     void GameOver()
     {
 
-        if(remaningTime == 0)
+        if(remainingTime == 0)
         {
             SceneManager.LoadScene(1);
         }

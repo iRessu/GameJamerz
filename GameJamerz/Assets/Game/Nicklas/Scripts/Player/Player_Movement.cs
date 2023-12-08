@@ -23,6 +23,7 @@ public class Player_Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Cursor.visible = false;
       
     }
 
@@ -64,7 +65,27 @@ public class Player_Movement : MonoBehaviour
     {
         if(col.CompareTag("Door"))
         {
+            activeDoor = col.gameObject;
+            activeDoor.GetComponent<DoorScript>().HideCodePanel();
             activeDoor = null;
+            Debug.Log("Exited Door Trigger");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        AudioManager am = FindObjectOfType<AudioManager>();
+
+        if(collision.gameObject.tag == "Box")
+        {
+            Rigidbody2D boxRigidB = collision.gameObject.GetComponent<Rigidbody2D>();
+            float velocityThreshold = 0.1f;
+            if(boxRigidB.velocity.magnitude > velocityThreshold)
+            {
+                am.Play("Box_Push");
+            }
+
+            boxRigidB.velocity = Vector2.zero;
         }
     }
 

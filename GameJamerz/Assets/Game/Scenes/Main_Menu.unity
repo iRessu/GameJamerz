@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.46226418, g: 0.071956225, b: 0.071956225, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.11124954, g: 0.9433962, b: 0.15725414, a: 1}
+  m_Color: {r: 0.94509804, g: 0.109803915, b: 0.2509098, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -945,10 +945,10 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Right_Code
-    clip: {fileID: 8300000, guid: e3829f5ee317c1a4ba81d8dbdd977d48, type: 3}
+    clip: {fileID: 8300000, guid: 5efc564cf8f3fac489fe6684727881ce, type: 3}
     volume: 0.5
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   instance: {fileID: 0}
 --- !u!4 &1643825340
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: fa79719eab43f0f4d8835d692eb5216f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

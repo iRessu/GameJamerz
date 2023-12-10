@@ -93,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 6771663998517974027}
   line: 'The Code is: 11223'
-  textSpeed: 0.1
+  textSpeed: 0.05
 --- !u!95 &6771663997591220342
 Animator:
   serializedVersion: 4

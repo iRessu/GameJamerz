@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 5485596080334808781}
   - component: {fileID: 5485596080334808783}
   m_Layer: 5
-  m_Name: CodePanel 1
+  m_Name: CodePanel_Fixed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

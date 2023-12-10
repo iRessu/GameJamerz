@@ -90,17 +90,11 @@ public class Player_Movement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        AudioManager am = FindObjectOfType<AudioManager>();
+   
 
         if(collision.gameObject.tag == "Box")
         {
             Rigidbody2D boxRigidB = collision.gameObject.GetComponent<Rigidbody2D>();
-            float velocityThreshold = 0.1f;
-            if(boxRigidB.velocity.magnitude > velocityThreshold)
-            {
-                am.Play("Box_Push");
-            }
-
             boxRigidB.velocity = Vector2.zero;
         }
     }

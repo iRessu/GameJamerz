@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class KeyDoor : MonoBehaviour
 {
-    [SerializeField] private Key.KeyType keyType;
+    [SerializeField] private GameObject door;
 
-    public Key.KeyType GetKeyType()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        return keyType;
-    }
-
-    public void OpenDoor()
-    {
-        gameObject.SetActive(false);
+        if(col.CompareTag("Player"))
+        {
+            door.SetActive(false);
+        }
     }
 }

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    [SerializeField] private KeyType keyType;
-    public enum KeyType
-    {
-        Red,Green,Blue
-    }
+    [SerializeField] private GameObject key;
+    [SerializeField] private GameObject doorTrigger;
+    [SerializeField] private GameObject dialougeBox;
 
-    public KeyType GetKeyType()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        return keyType;
+        if(col.CompareTag("Player"))
+        {
+            doorTrigger.SetActive(true);
+            key.SetActive(false);
+            Destroy(dialougeBox);
+        }
     }
 }

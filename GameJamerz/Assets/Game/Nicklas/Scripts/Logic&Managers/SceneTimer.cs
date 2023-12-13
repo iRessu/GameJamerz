@@ -67,7 +67,7 @@ public class SceneTimer : MonoBehaviour
 
         if(remainingTime == 0)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
     }
 }

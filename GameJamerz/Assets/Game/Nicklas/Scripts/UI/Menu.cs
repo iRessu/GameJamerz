@@ -8,7 +8,12 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private string sceneToLoad;
 
- 
+
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public void PlayButton()
     {
         SceneManager.LoadScene(sceneToLoad);

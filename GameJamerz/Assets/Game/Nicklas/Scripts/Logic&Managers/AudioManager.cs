@@ -66,6 +66,10 @@ public class AudioManager : MonoBehaviour
             StopMainMenuMusic();
             Play("Main Theme");
         }
+        else if(scene.name == "End_Scene")
+        {
+            StopThemeMusic();
+        }
         else
         {
             Play("Main Menu Theme");
@@ -77,6 +81,16 @@ public class AudioManager : MonoBehaviour
         foreach(Sound s in sounds)
         {
             s.source.volume = volume;
+        }
+    }
+
+
+    private void StopThemeMusic()
+    {
+        Sound mainThemeMusic = Array.Find(sounds, sound => sound.name == "Main Theme");
+        if(mainThemeMusic != null && mainThemeMusic.source.isPlaying)
+        {
+            mainThemeMusic.source.Stop();
         }
     }
 

@@ -432,6 +432,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5485596080334808779, guid: c61921c3d12beba4b868a0c09b99d0f7, type: 3}
   m_PrefabInstance: {fileID: 105157896}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &105157900
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105157898}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0dca3327485be24f92ef615b395d900, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &120290156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -840,7 +860,7 @@ PrefabInstance:
       propertyPath: line
       value: 'Todays is the 7th of October
 
-        It feels like it were something
+        It feels like it was something
         important today, but I can''t quite recall what'
       objectReference: {fileID: 0}
     - target: {fileID: 6771663997591220299, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
@@ -1081,7 +1101,7 @@ PrefabInstance:
         Your age
 
         The
-        number on the wal'
+        number on the wall'
       objectReference: {fileID: 0}
     - target: {fileID: 6771663997591220299, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
       propertyPath: m_Name
@@ -5841,6 +5861,10 @@ PrefabInstance:
       value: -0.5928028
       objectReference: {fileID: 0}
     - target: {fileID: 8566241913231614265, guid: 6234b31001e6ea84c9f738e78deb0f43, type: 3}
+      propertyPath: walkSpeed
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8566241913231614265, guid: 6234b31001e6ea84c9f738e78deb0f43, type: 3}
       propertyPath: slideForce
       value: 0.1
       objectReference: {fileID: 0}
@@ -8432,9 +8456,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6771663997591220298, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
       propertyPath: line
-      value: "There is an old pill bottle here:\n\u201CMe..ow ..liz, 12, Gala....
+      value: "There is an old pill bottle here:\n\u201CMa..ow ..liz, 1912, Gala....
         (8 mgs)\u201D \nHmm, some of the text is worn out, but the numbers seems
-        important."
+        important. \nIs it my birth year?"
       objectReference: {fileID: 0}
     - target: {fileID: 6771663997591220298, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
       propertyPath: textSpeed
@@ -8550,7 +8574,7 @@ PrefabInstance:
     - target: {fileID: 6771663997591220298, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
       propertyPath: line
       value: "Order of numbers:\r\nYou\u2019ll find 2 important numbers in the medical
-        cabinet\r\nWhat\u2019s the temperature outside? \r\nIs it your birthday today?\r\n"
+        cabinet\r\nWhat\u2019s the temperature outside? \r\nYour birth date\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 6771663997591220298, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
       propertyPath: textSpeed
@@ -9194,7 +9218,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6771663997591220298, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
       propertyPath: line
-      value: 'Oh that is right, in need to feed my cat..
+      value: 'Oh that is right, i need to feed my cat..
 
         Darn it, what was
         its name again?'
@@ -10239,14 +10263,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6771663997591220298, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
       propertyPath: line
-      value: 'There is a post it note here:
-
-        "You need to find the key, Marlowe"
-
-        Hmm,
-        Where may I have put it?
-
-        Maybe they are some of these boxes'
+      value: "There is a post- it note here:\n\"You need to find the key. \nRemember,
+        Marlowe\"\nHmm, Where may I have put it?\nMaybe it is under some of these
+        boxes"
       objectReference: {fileID: 0}
     - target: {fileID: 6771663997591220299, guid: 7615ccbe3bf48a74b98467876749af6e, type: 3}
       propertyPath: m_Name
@@ -10558,6 +10577,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5485596080334808779, guid: c61921c3d12beba4b868a0c09b99d0f7, type: 3}
   m_PrefabInstance: {fileID: 1869246741}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1869246745
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869246743}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e0dca3327485be24f92ef615b395d900, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1904949425
 GameObject:
   m_ObjectHideFlags: 0

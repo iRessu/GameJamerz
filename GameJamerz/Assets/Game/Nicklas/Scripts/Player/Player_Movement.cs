@@ -15,6 +15,7 @@ public class Player_Movement : MonoBehaviour
     private string currentAnimation;
     private int lastDirection = 0;
 
+    private Dialogue dialScript;
     Animator anim;
     const string PLAYER_WALKUP = "PlayerWalkUp_AN";
     const string PLAYER_WALKDOWN = "PlayerWalkDown_AN";
@@ -61,6 +62,19 @@ public class Player_Movement : MonoBehaviour
             }
         }
       PlayDirectionalAnimation();
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if(dialScript != null)
+            {
+                Debug.Log("Dialogue Script found");
+                dialScript.SkipTyping();
+            }
+            else
+            {
+                Debug.Log("Dialogue Script is Null!");
+            }
+        }
     }
 
     private void FixedUpdate()

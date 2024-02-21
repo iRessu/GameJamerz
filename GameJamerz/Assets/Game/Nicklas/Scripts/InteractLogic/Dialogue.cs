@@ -13,6 +13,8 @@ public class Dialogue : MonoBehaviour
     public float textSpeed;
 
     private Coroutine typingCoroutine;
+    private bool isTyping;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,15 @@ public class Dialogue : MonoBehaviour
         typingCoroutine = StartCoroutine(TypeLine());
     }
 
+    public void SkipTyping()
+    {
+        if(isTyping)
+        {
+            StopCoroutine(typingCoroutine);
+            textComponent.text = line;
+            isTyping = false;
+        }
+    }
     IEnumerator TypeLine()
     {
       
